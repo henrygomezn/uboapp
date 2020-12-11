@@ -1,0 +1,16 @@
+{
+    "id": 1,
+    "rut": "19473471-6",
+    "nombre": "Henry",
+    "apellido": "Gomez",
+    "correo": "h.gomez01@ufromail.cl",
+    "sexo": "MASCULINO",
+    "authorities": [
+        "ROLE_USUARIO"
+    ],
+    "enabled": true,
+    "accountNonExpired": true,
+    "accountNonLocked": true,
+    "credentialsNonExpired": true,
+    "username": "h.gomez01@ufromail.cl"
+}

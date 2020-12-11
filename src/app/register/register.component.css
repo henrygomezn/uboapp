@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../../assets/img/fondoubo.png);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+  }
+  #login .container #login-row #login-column #login-box {
+    margin-top: 200px;
+    max-width: 600px;
+    height: 500px;
+    border-radius: 5%;
+    background: linear-gradient(#d4d1d1,#797979)
+
+  }
+
+
+
+  .hola{
+  
+	transform: scale(1);
+  			transition: .3s ease-in-out;
+
+}
+
+.hola:hover{
+    transform: scale(1.1);
+
+
+  }
+
+#cajita{
+    padding-top: 15%;
+   
+   
+}
