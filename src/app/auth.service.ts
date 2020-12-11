@@ -1,94 +1,157 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
-import {catchError, tap} from 'rxjs/operators';
-import {TokenService} from './token.service';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment';
+import { Observable, of } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+import {Usuario} from '../app/interfaces/usuario';
+import {AccessToken } from '../app/interfaces/access-token';
 
-const OAUTH_CLIENT = 'android';
-const OAUTH_SECRET = 'android';
-const API_URL = 'https://proyect-survey.herokuapp.com/';
-const HTTP_OPTIONS = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/x-www-form-urlencoded',
-    Authorization: 'Basic ' + btoa(OAUTH_CLIENT + ':' + OAUTH_SECRET)
-  })
-};
-
+/**
+ * @author Matías Hermosilla
+ */
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
 
-  redirectUrl = '';
+    // Cache de usuario
+    private usuario?: Usuario;
 
-  private static handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error occurred:', error.error.message);
-    } else {
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
+    // Token de acceso
+    private token?: AccessToken;
+
+    public constructor(
+        private storage: Storage,
+        private http: HttpClient
+    ) {
+
+        // Si hay token en localStorage
+        const item: string | null = this.storage.getItem(environment.token_item);
+
+        // Si el item existe
+        if (item) {
+            // Leer objeto
+            this.token = JSON.parse(item);
+
+            // Si hay token
+            if (this.token) {
+
+                // Si hay expiracion
+                if (this.token.expiracion) {
+                    // Transformar fecha a Date
+                    this.token.expiracion = new Date(this.token.expiracion);
+                } else {
+                    // Eliminar token
+                    this.removeToken();
+                }
+            }
+        }
     }
-    return throwError(
-      'Something bad happened; please try again later.');
-  }
 
-  private static log(message: string): any {
-    console.log(message);
-  }
+    public login(usuario): Observable<boolean> {
+        // Si no hay contraseña
+        if (!usuario.password) {
+            // Retornar falso
+            return of(false);
+        }
 
-  constructor(private http: HttpClient, private tokenService: TokenService) {
-  }
+        // Crear FormData
+        const form: FormData = new FormData();
 
-  login(loginData: any): Observable<any> {
-    this.tokenService.removeToken();
-    this.tokenService.removeRefreshToken();
-    const body = new HttpParams()
-      .set('username', loginData.username)
-      .set('password', loginData.password)
-      .set('grant_type', 'password');
+        // Método de inicio de sesión
+        form.append('grant_type', 'password');
 
-    return this.http.post<any>(API_URL + 'oauth/token', body, HTTP_OPTIONS)
-      .pipe(
-        tap(res => {
-          this.tokenService.saveToken(res.access_token);
-          this.tokenService.saveRefreshToken(res.refresh_token);
-        }),
-        catchError(AuthService.handleError)
-      );
-  }
+        // Usuario
+        form.append('username', usuario.username);
+        form.append('password', usuario.password);
 
-  refreshToken(refreshData: any): Observable<any> {
-    this.tokenService.removeToken();
-    this.tokenService.removeRefreshToken();
-    const body = new HttpParams()
-      .set('refresh_token', refreshData.refresh_token)
-      .set('grant_type', 'refresh_token');
-    return this.http.post<any>(API_URL + 'oauth/token', body, HTTP_OPTIONS)
-      .pipe(
-        tap(res => {
-          this.tokenService.saveToken(res.access_token);
-          this.tokenService.saveRefreshToken(res.refresh_token);
-        }),
-        catchError(AuthService.handleError)
-      );
-  }
+        // Enviar FormData
+        return this.http.post<AccessToken>(`${environment.host}/oauth/token`, form)
+            .pipe(map(
+                response => {
+                    // Fijar token
+                    this.setToken(response);
 
-  logout(): void {
-    this.tokenService.removeToken();
-    this.tokenService.removeRefreshToken();
-  }
+                    // Retornar verdadero
+                    return true;
+                },
+                () => {
+                    // Retornar falso
+                    return false;
+                }
+            ));
+    }
 
-  register(data: any): Observable<any> {
-    return this.http.post<any>(API_URL + 'usuarios', data)
-      .pipe(
-        tap(_ => AuthService.log('register')),
-        catchError(AuthService.handleError)
-      );
-  }
+    public getToken(): AccessToken | undefined {
+        // Si hay token en memoria
+        if (this.token) {
 
-  secured(): Observable<any> {
-    return this.http.get<any>(API_URL + 'authUser')
-      .pipe(catchError(AuthService.handleError));
-  }
+            // Retornar copia del token
+            return Object.assign({}, this.token);
+        }
+
+        // Retornar indefinido
+        return undefined;
+    }
+
+    public setToken(token: AccessToken): AccessToken | undefined {
+        // Si el token no es nulo
+        if (token != null) {
+            // Copiar token a memoria
+            this.token = Object.assign({}, token);
+
+            // Si no hay fecha de expiracion
+            if (!this.token.expiracion) {
+                // Fijar expiración
+                this.token.expiracion = new Date(Date.now() + token.expires_in * 1000);
+            }
+
+            // Almacenar en localStorage
+            this.storage.setItem(environment.token_item, JSON.stringify(this.token));
+
+            // Eliminar usuario de memoria
+            this.usuario = undefined;
+
+            // Retornar copia del token
+            return Object.assign({}, this.token);
+        }
+
+        // Returnar indefinido
+        return undefined;
+    }
+
+    public removeToken(): void {
+        // Quitar token de memoria
+        this.token = undefined;
+
+        // Quitar token de localStorage
+        this.storage.removeItem(environment.token_item);
+
+        // Eliminar usuario de memoria
+        this.usuario = undefined;
+    }
+
+    public getUsuario(): Observable<Usuario> {
+        // Si hay un usuario
+        if (this.usuario) {
+            // Retornar un observable de ese usuario
+            return of(this.usuario);
+        }
+
+        // Retornar un observable de una petición que obtiene al usuario
+        return this.http.get<Usuario>(`${environment.host}/usuarios/me`)
+            .pipe(tap(response => this.usuario = response));
+    }
+
+    public tokenEsValido(): boolean {
+        // Si hay token
+        if (this.token && this.token.expiracion) {
+            // Verificar expiración
+            return this.token.expiracion.getTime() > Date.now();
+        }
+
+        // No hay token
+        return false;
+    }
+
 }

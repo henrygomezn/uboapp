@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   rut = '';
   sexo = '';
   isLoadingResults = false;
-   
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -29,14 +29,14 @@ export class RegisterComponent implements OnInit {
 
  console.log(forma.value);
 
-  this.authService.register(forma.value)
-    .subscribe((res: any) => {
-      this.isLoadingResults = false;
-      this.router.navigate(['/login']).then(_ => console.log('You are registered now!'));
-    }, (err: any) => {
-      console.log(err);
-      this.isLoadingResults = false;
-    });
+  // this.authService.register(forma.value)
+  //   .subscribe((res: any) => {
+  //     this.isLoadingResults = false;
+  //     this.router.navigate(['/login']).then(_ => console.log('You are registered now!'));
+  //   }, (err: any) => {
+  //     console.log(err);
+  //     this.isLoadingResults = false;
+  //   });
  }
 
 

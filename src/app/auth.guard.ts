@@ -8,26 +8,24 @@ import {TokenService} from './token.service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private tokenService: TokenService, private router: Router) {
-  }
+  public constructor(
+    private authService: AuthService,
+    private router: Router
+) {
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
-    const url: string = state.url;
+}
 
-    return this.checkLogin(url);
-  }
+public canActivate(): boolean {
+    if (!this.authService.tokenEsValido()) {
+        // Navegar a login
+        this.router.navigate(['/']);
 
-  checkLogin(url: string): boolean {
-    if (this.tokenService.getRefreshToken()) {
-      return true;
+        // Retornar falso
+        return false;
     }
 
-    this.authService.redirectUrl = url;
-
-    this.router.navigate(['/login']).then(_ => false);
-  }
-
+    // Retornar verdadero
+    return true;
+}
 
 }

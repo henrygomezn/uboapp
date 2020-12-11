@@ -28,7 +28,12 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [{
+  providers: [
+    {
+      provide: Storage,
+      useValue: localStorage
+  },
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

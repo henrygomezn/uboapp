@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
- 
+
 
 
   username = '';
@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
 
   guardar(forma:NgForm) {
     this.isLoadingResults = true;
+    console.log(forma.value);
     this.authService.login(forma.value)
       .subscribe(() => {
         this.isLoadingResults = false;
