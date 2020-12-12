@@ -25,6 +25,7 @@
     width: 200px;
     background-color: #a5a5a5;
     color: white;
+    text-shadow: 2px 2px black;
     position: fixed;
     height: 100%;
     z-index: 1;
@@ -77,6 +78,43 @@
       padding-top: 280%
   }
 
-  .jumbotron{
+  #num1{
     opacity: .3;
+   
+  }
+
+
+  .button {
+    
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 45%;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #032355;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .button:hover {background-color: #042b69}
+  
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  #num2{
+    background-color: transparent;
+
+  }
+
+  #boton{
+   
+
+    opacity: 1;
   }

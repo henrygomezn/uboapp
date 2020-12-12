@@ -3,7 +3,7 @@ import {AuthService} from '../auth.service';
 
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +34,11 @@ export class LoginComponent implements OnInit {
     this.authService.login(forma.value)
       .subscribe(() => {
         this.isLoadingResults = false;
+        Swal.fire(
+          '¡Inicio de sesion exitoso!',
+          '',
+          'success'
+        )
         this.router.navigate(['/secure']).then(_ => console.log('You are secure now!'));
       }, (err: any) => {
         console.log(err);

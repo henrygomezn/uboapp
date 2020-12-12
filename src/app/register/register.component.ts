@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 @Component({
   selector: 'app-register',
@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   rut = '';
   sexo = '';
   isLoadingResults = false;
-   
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
