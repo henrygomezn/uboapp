@@ -16,7 +16,7 @@ export class PreguntaService {
     this.http.get(API_URL+'questions').subscribe((resp:Pregunta) => {
        this.info=resp;
        this.cargada=true;
-       console.log(resp);
+
     });
 
 
