@@ -7,7 +7,7 @@ body {
     height: 100vh;
   }
   #login .container #login-row #login-column #login-box {
-    margin-top: 200px;
+    margin-top: 150px;
     max-width: 600px;
     height: 420px;
     border-radius: 5%;
@@ -15,24 +15,9 @@ body {
 
   }
 
-
-
-  .hola{
-  
-	transform: scale(1);
-  			transition: .3s ease-in-out;
-
-}
-
-.hola:hover{
-    transform: scale(1.1);
-
-
-  }
-
 #cajita{
-    
-   
+
+
 }
 
 #logo{
@@ -41,10 +26,21 @@ body {
    padding-left: 40%;
 }
 
+.hola:hover{
+  transform: scale(1);
+}
+
+.hola{
+
+	transform: scale(0.8);
+  transition: 1s ease-in-out;
+
+}
+
 #prueba:hover{
     -webkit-transform: rotateY(360deg);
     -webkit-transform-style: preserve-3d;
     transform: rotateY(360);
     transform-style: preserve-3d;
-    transition: 1s;
+    transition: 1.5s;
 }
