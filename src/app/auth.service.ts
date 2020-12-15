@@ -6,7 +6,7 @@ import {TokenService} from './token.service';
 
 const OAUTH_CLIENT = 'android';
 const OAUTH_SECRET = 'android';
-const API_URL = 'https://proyect-survey.herokuapp.com/';
+const API_URL = 'https://survey-proyect.herokuapp.com/';
 const HTTP_OPTIONS = {
   headers: new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',

@@ -57,7 +57,7 @@ export class TestComponent implements OnInit {
       if (index == -1) {
         this.respuestas.push(respuesta);
       } else {
-        this.respuestas.splice(pos, 1);
+        this.respuestas.splice(index, 1);
         this.respuestas.push(respuesta);
       }
     } else {

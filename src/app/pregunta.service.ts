@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Pregunta} from '../app/interfaces/pregunta.interface';
 
 
-const API_URL = 'https://proyect-survey.herokuapp.com/';
+const API_URL = 'https://survey-proyect.herokuapp.com/';
 
 @Injectable({
   providedIn: 'root'
