@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { SecureComponent } from './secure/secure.component';
 import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { TestComponent } from './test/test.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule,
+    MatRadioModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
