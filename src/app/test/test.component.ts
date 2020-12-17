@@ -7,9 +7,12 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { PreguntaService } from '../pregunta.service';
+import { RespuestasService } from '../respuestas.service';
 import { Router } from '@angular/router';
 import { Respuesta } from '../interfaces/respuesta';
 import { Pregunta } from '../interfaces/pregunta.interface';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-test',
@@ -27,8 +30,11 @@ export class TestComponent implements OnInit {
   posSelect : number = -1;
   valueSelect : number = 0;
   preguntaSelect : string = "";
+  isLoadingResults = false;
 
-  constructor(public infopag: PreguntaService, private router: Router) {}
+  resultado: Array<Respuesta>;
+
+  constructor(public infopag: PreguntaService, private router: Router, private respService: RespuestasService) {}
 
   ngOnInit(): void {}
 
@@ -66,4 +72,45 @@ export class TestComponent implements OnInit {
 
     console.log(this.respuestas);
   }
+
+
+  enviarRespuestas(): void{
+   
+    console.log("asdasdasd");
+    console.log(this.respuestas.length);
+
+   if(this.respuestas.length<90){
+ 
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'No has contestado todas las preguntas, vuelve a intentarlo'
+
+    })
+   }else{
+   
+    
+     console.log(this.respuestas);
+     this.isLoadingResults = true;
+     this.respService.guardarRespuestas(this.respuestas).subscribe(
+      data => {
+        this.resultado = [];
+        this.resultado.push(data);
+        console.log(data);
+      },
+      err => {}
+    );
+      
+    
+     
+   }
+
+  }
+
+
+
+
+
+
+
 }

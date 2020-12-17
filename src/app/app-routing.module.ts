@@ -5,6 +5,7 @@ import { SecureComponent } from './secure/secure.component';
 import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
 import { AuthGuard } from './auth.guard';
+import { ResultadosComponent } from './resultados/resultados.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'test', component: TestComponent },
+  { path: 'resultados', component: ResultadosComponent },
   { path: '**', redirectTo: '404' }
 ];
 

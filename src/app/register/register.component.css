@@ -7,9 +7,9 @@ body {
     height: 100vh;
   }
   #login .container #login-row #login-column #login-box {
-    margin-top: 200px;
+    margin-top: 130px;
     max-width: 600px;
-    height: 500px;
+    height: 620px;
     border-radius: 5%;
     background: linear-gradient(#d4d1d1,#797979)
 
@@ -31,7 +31,24 @@ body {
   }
 
 #cajita{
-    padding-top: 15%;
    
    
+}
+
+#logo{
+  padding-top: 3%;
+  padding-bottom: 5%;
+  padding-left: 40%;
+}
+
+#caja {
+  
+}
+#caja:invalid {
+ 
+}
+
+#caja:invalid:focus {
+  background-color: rgb(255, 170, 170);
+  border: 2px solid red;
 }

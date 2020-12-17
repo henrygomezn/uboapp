@@ -16,6 +16,8 @@ const API_URL = 'https://survey-proyect.herokuapp.com/';
 export class UserService {
   info:infPag={};
   cargada=false;
+
+  
   constructor(private http:HttpClient){
     console.log("servicio corriendo");
     this.http.get(API_URL+'authUser').subscribe((resp:infPag) => {
