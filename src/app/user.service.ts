@@ -7,7 +7,7 @@ import { infPag} from '../app/interfaces/info-pagina.interface'
 
 
 
-const API_URL = 'https://proyect-survey.herokuapp.com/';
+const API_URL = 'https://survey-proyect.herokuapp.com/';
 
 
 @Injectable({
@@ -16,6 +16,8 @@ const API_URL = 'https://proyect-survey.herokuapp.com/';
 export class UserService {
   info:infPag={};
   cargada=false;
+
+  
   constructor(private http:HttpClient){
     console.log("servicio corriendo");
     this.http.get(API_URL+'authUser').subscribe((resp:infPag) => {

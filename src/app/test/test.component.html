@@ -1,5 +1,5 @@
 
-     
+
 
 
     <HTML>
@@ -11,12 +11,12 @@
             <nav class="navbar">
                 <a class="navbar-brand" href="#">
                   <img src="../../assets/img/logo.png" width="60" height="50" class="d-inline-block align-top" alt="">
-                  
+
                 </a>
               </nav>
-            
 
-              <div class="card text-center container">
+
+              <div class="card container">
                 <div class="card-header">
                   TEST
                 </div>
@@ -24,50 +24,65 @@
 
 
                   <h5 class="card-title">Holi</h5>
-               <div class="card-text" *ngFor="let info of infopag.info">
+               <div class="card-text" *ngFor="let info of infopag.info; index as i">
 
-                {{info.pregunta}} <br>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">1</label>
+                {{i+1}}. {{info.pregunta}} <br><br>
+
+
+                <mat-radio-group   aria-label="Select an option"  >
+                  <mat-radio-button #btn1 value="1"  color="primary"   (click)="savedRespuesta(i, btn1.value, info.pregunta)">{{info.alternativas[1]}}</mat-radio-button>
+                  <mat-radio-button #btn2 value="2"  color="primary"   (click)="savedRespuesta(i, btn2.value, info.pregunta)">{{info.alternativas[2]}}</mat-radio-button>
+                  <mat-radio-button #btn3 value="3"  color="primary"   (click)="savedRespuesta(i, btn3.value, info.pregunta)">{{info.alternativas[3]}}</mat-radio-button>
+                  <mat-radio-button #btn4 value="4"  color="primary"   (click)="savedRespuesta(i, btn4.value, info.pregunta)">{{info.alternativas[4]}}</mat-radio-button>
+                  <mat-radio-button #btn5 value="5"  color="primary"   (click)="savedRespuesta(i, btn5.value, info.pregunta)">{{info.alternativas[5]}}</mat-radio-button>
+                </mat-radio-group>
+
+
+                <!-- <div class="form-check form-check-inline">
+                    <input #input1  class="form-check-input" type="radio" [name]="'inlineRadioOptions1'+i" value="1" (click)="savedRespuesta(i, input1.value, info.pregunta)"   >
+                    <label class="form-check-label" >1 {{info.alternativas[1]}}</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">2</label>
+                    <input #input2  class="form-check-input" type="radio" [name]="'inlineRadioOptions2'+i" value="2" (click)="savedRespuesta(i, input2.value, info.pregunta)" >
+                    <label class="form-check-label">2 {{info.alternativas[2]}}</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                    <label class="form-check-label" for="inlineRadio2">3</label>
+                    <input #input3  class="form-check-input" type="radio" [name]="'inlineRadioOptions3'+i" value="3" (click)="savedRespuesta(i, input3.value, info.pregunta)"  >
+                    <label class="form-check-label" > 3 {{info.alternativas[3]}}</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-                    <label class="form-check-label" for="inlineRadio2">4</label>
+                    <input #input4  class="form-check-input" type="radio" [name]="'inlineRadioOptions4'+i" value="4" (click)="savedRespuesta(i, input4.value, info.pregunta)" >
+                    <label class="form-check-label" >4 {{info.alternativas[4]}}</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-                    <label class="form-check-label" for="inlineRadio2">5</label>
-                  </div>
+                    <input #input5  class="form-check-input" type="radio" [name]="'inlineRadioOptions5'+i" value="5" (click)="savedRespuesta(i, input5.value, info.pregunta)" >
+                    <label class="form-check-label" >5 {{info.alternativas[5]}}</label>
+                  </div> -->
+
+                  <br>
+               <br>
+
 
                </div>
-               
-               
-    
-                 
-                   
+
+
+
+
+
                   <br>
-               
 
 
 
 
-                  <a href="#" class="btn btn-primary">Enviar respuestas</a>
+
+                  <button class="button" id="btnRespuesta" (click)="enviarRespuestas()">Realizar Test</button>
                 </div>
-               
+
               </div>
 
-                
 
- 
+
+
 
 
 

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Pregunta} from '../app/interfaces/pregunta.interface';
 
 
-const API_URL = 'https://proyect-survey.herokuapp.com/';
+const API_URL = 'https://survey-proyect.herokuapp.com/';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class PreguntaService {
     this.http.get(API_URL+'questions').subscribe((resp:Pregunta) => {
        this.info=resp;
        this.cargada=true;
-       console.log(resp);
+
     });
 
 
