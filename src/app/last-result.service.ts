@@ -16,7 +16,7 @@ export class LastResultService {
 
 
    getJson(){
-     console.log("corriendo! last");
+     //console.log("corriendo! last");
      return this.http.get(environment.API_URL+ 'test_response/last_result');
    }
 

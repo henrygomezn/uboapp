@@ -16,11 +16,11 @@ export class UserService {
 
 
   constructor(private http:HttpClient){
-    console.log("servicio corriendo");
+   // console.log("servicio corriendo");
     this.http.get(environment.API_URL+'authUser').subscribe((resp:infPag) => {
        this.info=resp;
        this.cargada=true;
-       console.log(resp);
+      // console.log(resp);
     });
 
 

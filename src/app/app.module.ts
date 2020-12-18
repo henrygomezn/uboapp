@@ -9,7 +9,6 @@ import { FormsModule} from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SecureComponent } from './secure/secure.component';
 import { RegisterComponent } from './register/register.component';
@@ -25,7 +24,6 @@ import { MatSpinnerOverlayComponent } from './mat-spinner-overlay/mat-spinner-ov
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     HomeComponent,
     SecureComponent,
     RegisterComponent,

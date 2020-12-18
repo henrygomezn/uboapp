@@ -72,17 +72,17 @@ export class TestComponent implements OnInit {
       this.respuestas.push(respuesta);
     }
 
-    console.log(this.respuestas);
+   // console.log(this.respuestas);
   }
 
 
   enviarRespuestas(): void{
-   
-    console.log("asdasdasd");
-    console.log(this.respuestas.length);
+
+   // console.log("asdasdasd");
+   // console.log(this.respuestas.length);
 
    if(this.respuestas.length<90){
- 
+
     Swal.fire({
       icon: 'error',
       title: 'Error',
@@ -90,25 +90,25 @@ export class TestComponent implements OnInit {
 
     }  );
 
-    console.log("uta");
-    
+   // console.log("uta");
+
    }else{
-   
-    
-     console.log(this.respuestas);
+
+
+    // console.log(this.respuestas);
      this.isLoadingResults = true;
      this.respService.guardarRespuestas(this.respuestas).subscribe(
       data => {
-       
-       console.log(data.linkPDF);  
+
+     //  console.log(data.linkPDF);
        localStorage.setItem('urlPDF', data.linkPDF);
         this.resultado=data;
        this.router.navigate(['/resultados']).then(_ => console.log('respuestas ingresadas!'));
       },
       err => {}
     );
-      
-     
+
+
    }
 
   }

@@ -10,7 +10,7 @@ export class PreguntaService {
   info:Pregunta={};
   cargada=false;
   constructor(private http:HttpClient){
-    console.log("servicio corriendo");
+   // console.log("servicio corriendo");
     this.http.get(environment.API_URL+'questions').subscribe((resp:Pregunta) => {
        this.info=resp;
        this.cargada=true;

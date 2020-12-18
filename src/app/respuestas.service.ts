@@ -19,7 +19,7 @@ export class RespuestasService {
 
   guardarRespuestas(data: any):  Observable<ResponseTest>  {
 
-     console.log("serv corre!")
+   //  console.log("serv corre!")
 
       return this.http.post<ResponseTest>(environment.API_URL + 'test_response', data);
 

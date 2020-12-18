@@ -1,19 +1,19 @@
  body{
-    
-    
+
+
      background-image: url(../../assets/img/fondoubo2.jpg);
      background-position: center;
      background-size: cover;
-     height: 100vh;
-     
+     height: 150vh;
+
  }
- 
+
  .navbar {
    background-color: #032355;
    position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
-   
+
 }
 
 .navbar-brand{
@@ -80,12 +80,12 @@
 
   #num1{
     background-color: rgb(167, 167, 167);
-   
+
   }
 
 
   .button {
-    
+
     padding: 15px 25px;
     font-size: 24px;
     cursor: pointer;
@@ -99,9 +99,9 @@
     border-radius: 15px;
     box-shadow: 0 9px #999;
   }
-  
+
   .button:hover {background-color: #042b69}
-  
+
   .button:active {
     background-color: #4e4e4e;
     box-shadow: 0 5px #666;
@@ -114,7 +114,7 @@
   }
 
   #boton{
-   
+
 
     opacity: 1;
   }

@@ -26,7 +26,7 @@ import { TestComponent } from '../test/test.component';
   styleUrls: ['./resultados.component.css']
 })
 export class ResultadosComponent implements OnInit {
- 
+
 
 
 
@@ -35,18 +35,18 @@ export class ResultadosComponent implements OnInit {
   por2:number=50;
   por3:number=50;
   url:any;
-  
+
   constructor( public json: LastResultService,public infopag:UserService) {
     this.json.getJson().subscribe((res: any) => {
-      console.log(res);
+     // console.log(res);
       this.resultados=res;
-      console.log(this.resultados);
+    //  console.log(this.resultados);
 
     });
    }
 
-  ngOnInit(): void {     
-  
+  ngOnInit(): void {
+
    this.url=localStorage.getItem('urlPDF');
   }
 
@@ -61,10 +61,10 @@ export class ResultadosComponent implements OnInit {
     timer: 1000
   })
  }
-  
+
 }
 
 
- 
+
 
 

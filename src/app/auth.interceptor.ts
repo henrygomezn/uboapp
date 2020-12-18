@@ -21,11 +21,11 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): any {
 
     const token = this.tokenService.getToken();
-    console.log("paso aca");
+   // console.log("paso aca");
     const refreshToken = this.tokenService.getRefreshToken();
 
     if (token) {
-      request = request.clone({ 
+      request = request.clone({
         setHeaders: {
           Authorization: 'Bearer ' + token
         }
@@ -47,12 +47,12 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          console.log('event--->>>', event);
+         // console.log('event--->>>', event);
         }
         return event;
       }),
       catchError((error: HttpErrorResponse) => {
-        console.log(error.error.error);
+       // console.log(error.error.error);
         if (error.status === 401) {
           if (error.error.error === 'invalid_token') {
             this.authService.refreshToken({refresh_token: refreshToken})

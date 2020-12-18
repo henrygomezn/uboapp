@@ -38,12 +38,12 @@ export class AuthService {
   constructor(private http: HttpClient, private tokenService: TokenService) {
   }
 
-  login(loginData: any): Observable<any> {
+  login(username,password): Observable<any> {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
     const body = new HttpParams()
-      .set('username', loginData.username)
-      .set('password', loginData.password)
+      .set('username', username)
+      .set('password', password)
       .set('grant_type', 'password');
 
     return this.http.post<any>(environment.API_URL + 'oauth/token', body, HTTP_OPTIONS)

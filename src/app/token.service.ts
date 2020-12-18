@@ -10,7 +10,7 @@ export class TokenService {
   constructor() { }
 
   getToken(): string {
-    console.log(localStorage.getItem(environment.ACCESS_TOKEN));
+    //console.log(localStorage.getItem(environment.ACCESS_TOKEN));
     return localStorage.getItem(environment.ACCESS_TOKEN);
   }
 

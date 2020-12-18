@@ -16,25 +16,25 @@
               </nav>
 
 
-              <div class="card text-center container">
-                <div class="card-header">
+              <div class="card container">
+                <div class="card-header text-center">
                   TEST
                 </div>
                 <div class="card-body">
 
 
-       
+
                <div  *ngFor="let info of infopag.info; index as i">
 
-           <p id="question"> {{i+1}}. {{info.pregunta}}</p> 
+           <p id="question"> {{i+1}}. {{info.pregunta}}</p>
 
 
                 <mat-radio-group   aria-label="Select an option"  >
-                  <mat-radio-button #btn1 value="1"  color="primary"   (click)="savedRespuesta(i, btn1.value, info.pregunta)">{{info.alternativas[1]}}</mat-radio-button>
-                  <mat-radio-button #btn2 value="2"  color="primary"   (click)="savedRespuesta(i, btn2.value, info.pregunta)">{{info.alternativas[2]}}</mat-radio-button>
-                  <mat-radio-button #btn3 value="3"  color="primary"   (click)="savedRespuesta(i, btn3.value, info.pregunta)">{{info.alternativas[3]}}</mat-radio-button>
-                  <mat-radio-button #btn4 value="4"  color="primary"   (click)="savedRespuesta(i, btn4.value, info.pregunta)">{{info.alternativas[4]}}</mat-radio-button>
-                  <mat-radio-button #btn5 value="5"  color="primary"   (click)="savedRespuesta(i, btn5.value, info.pregunta)">{{info.alternativas[5]}}</mat-radio-button>
+                  <mat-radio-button #btn1 value="1"  color="primary"   (change)="savedRespuesta(i, btn1.value, info.pregunta)">{{info.alternativas[1]}}</mat-radio-button>
+                  <mat-radio-button #btn2 value="2"  color="primary"   (change)="savedRespuesta(i, btn2.value, info.pregunta)">{{info.alternativas[2]}}</mat-radio-button>
+                  <mat-radio-button #btn3 value="3"  color="primary"   (change)="savedRespuesta(i, btn3.value, info.pregunta)">{{info.alternativas[3]}}</mat-radio-button>
+                  <mat-radio-button #btn4 value="4"  color="primary"   (change)="savedRespuesta(i, btn4.value, info.pregunta)">{{info.alternativas[4]}}</mat-radio-button>
+                  <mat-radio-button #btn5 value="5"  color="primary"   (change)="savedRespuesta(i, btn5.value, info.pregunta)">{{info.alternativas[5]}}</mat-radio-button>
                 </mat-radio-group>
 
 
