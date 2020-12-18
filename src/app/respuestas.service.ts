@@ -3,8 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/c
 import {Observable, throwError} from 'rxjs';
 import { Respuesta} from '../app/interfaces/respuesta';
 import { ResponseTest} from '../app/interfaces/responseTest.interface';
-
-const API_URL = 'https://survey-proyect.herokuapp.com/';
+import {environment} from '../environments/environment';
 
 
 
@@ -22,8 +21,8 @@ export class RespuestasService {
 
      console.log("serv corre!")
 
-      return this.http.post<ResponseTest>(API_URL + 'test_response', data);
-    
+      return this.http.post<ResponseTest>(environment.API_URL + 'test_response', data);
+
 
   }
 
