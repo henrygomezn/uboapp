@@ -32,8 +32,20 @@ export class RegisterComponent implements OnInit {
   this.authService.register(forma.value)
     .subscribe((res: any) => {
       this.isLoadingResults = false;
+   
+
       this.router.navigate(['/login']).then(_ => console.log('You are registered now!'));
+
+      
+
+
     }, (err: any) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No has ingresado todos los datos, o el correo ya existe'
+  
+      }  );
       console.log(err);
       this.isLoadingResults = false;
     });

@@ -19,6 +19,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card'
 import { ResultadosComponent } from './resultados/resultados.component';
+import { MatSpinnerOverlayComponent } from './mat-spinner-overlay/mat-spinner-overlay.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ResultadosComponent } from './resultados/resultados.component';
     SecureComponent,
     RegisterComponent,
     TestComponent,
-    ResultadosComponent
+    ResultadosComponent,
+    MatSpinnerOverlayComponent
   ],
   imports: [
     BrowserModule,

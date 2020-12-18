@@ -9,7 +9,7 @@ body {
   #login .container #login-row #login-column #login-box {
     margin-top: 130px;
     max-width: 600px;
-    height: 620px;
+    height: 600px;
     border-radius: 5%;
     background: linear-gradient(#d4d1d1,#797979)
 
@@ -41,14 +41,22 @@ body {
   padding-left: 40%;
 }
 
-#caja {
-  
-}
-#caja:invalid {
- 
-}
 
 #caja:invalid:focus {
   background-color: rgb(255, 170, 170);
   border: 2px solid red;
 }
+
+
+#prueba:hover{
+  -webkit-transform: rotateY(360deg);
+  -webkit-transform-style: preserve-3d;
+  transform: rotateY(360);
+  transform-style: preserve-3d;
+  transition: 1.5s;
+}
+
+.btn:hover{
+  background-color: #032355;
+}
+

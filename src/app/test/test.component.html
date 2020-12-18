@@ -9,24 +9,24 @@
         <body>
 
             <nav class="navbar">
-                <a class="navbar-brand" href="#">
-                  <img src="../../assets/img/logo.png" width="60" height="50" class="d-inline-block align-top" alt="">
+                <a class="navbar-brand" href="/secure">
+                  <img src="../../assets/img/logo.png" width="60" height="50" class="d-inline-block align-top" id="prueba1" alt="">
 
                 </a>
               </nav>
 
 
-              <div class="card container">
+              <div class="card text-center container">
                 <div class="card-header">
                   TEST
                 </div>
                 <div class="card-body">
 
 
-                  <h5 class="card-title">Holi</h5>
-               <div class="card-text" *ngFor="let info of infopag.info; index as i">
+       
+               <div  *ngFor="let info of infopag.info; index as i">
 
-                {{i+1}}. {{info.pregunta}} <br><br>
+           <p id="question"> {{i+1}}. {{info.pregunta}}</p> 
 
 
                 <mat-radio-group   aria-label="Select an option"  >
@@ -75,7 +75,7 @@
 
 
 
-                  <button class="button" id="btnRespuesta" (click)="enviarRespuestas()">Realizar Test</button>
+                  <button class="button" id="btnRespuesta" (click)="enviarRespuestas()">Enviar respuestas</button>
                 </div>
 
               </div>

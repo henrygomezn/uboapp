@@ -14,17 +14,15 @@ const API_URL = 'https://survey-proyect.herokuapp.com/';
 export class LastResultService {
   
 
- constructor(private http: HttpClient){}
- 
-  getJson() {
-   
-
-    return this.http.get(API_URL + 'test_response/last_result');
-  }
+  constructor(private http:HttpClient){ }
 
 
+   getJson(){
+     console.log("corriendo! last");
+     return this.http.get(API_URL+ 'test_response/last_result');
+   }
 
- }
 
 
- 
+
+}

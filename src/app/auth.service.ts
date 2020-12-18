@@ -4,8 +4,8 @@ import {Observable, throwError} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {TokenService} from './token.service';
 
-const OAUTH_CLIENT = 'android';
-const OAUTH_SECRET = 'android';
+const OAUTH_CLIENT = 'android-client';
+const OAUTH_SECRET = 'android_secret';
 const API_URL = 'https://survey-proyect.herokuapp.com/';
 const HTTP_OPTIONS = {
   headers: new HttpHeaders({

@@ -29,7 +29,7 @@
                                          type="text"
                                          name="nombre"
                                          ngModel
-                                         placeholder="nombre"
+                                         placeholder="Nombre"
                                          required>
                                 </div>
                               </div>
@@ -40,7 +40,7 @@
                           
                                   <input class="form-control"
                                          type="text"
-                                         placeholder="apellido"
+                                         placeholder="Apellidos"
                                          name="apellido"
                                          ngModel
                                          required>
@@ -52,8 +52,8 @@
                                 <div class="col-8">
                           
                                   <input class="form-control"
-                                         type="text"
-                                         placeholder="correo"
+                                         type="email"
+                                         placeholder="Correo electronico"
                                          name="correo"
                                          ngModel
                                          required>
@@ -67,8 +67,8 @@
                                 <div class="col-8">
                           
                                   <input class="form-control"
-                                         type="password"
-                                         placeholder="contraseña"
+                                         type="text"
+                                         placeholder="Confirmar Correo"
                                          name="contrasena"
                                          ngModel
                                          required>
@@ -83,10 +83,11 @@
                           
                                   <input class="form-control"
                                          type="text"
-                                         placeholder="rut (1111111-1)"
+                                         placeholder="RUT (1111111-1)"
                                          name="rut"
                                          id="caja"
                                          minlength="9"
+                                         maxlength="10"
                                          ngModel
                                          required>
                                 </div>
@@ -97,7 +98,7 @@
                                 <label class="col-2 col-form-label"></label>
                                 <div class="col-8">
                           
-
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="sexo" ngModel value="0">
                                     <label class="form-check-label" for="inlineRadio1">Masculino</label>
@@ -119,12 +120,10 @@
                             <div class="form-group row">
                               <label class="col-2 col-form-label">&nbsp;</label>
                               <div class="input-group col-md-8">
-                                <button type="submit" class="btn btn-outline-primary btn-block">
+                                <button type="submit" class="btn btn-outline-secondary btn-block">
                                   Enviar
                                 </button>
-                                <button type="button" class="btn btn-outline-primary btn-block" >
-                                    <a href="">Volver</a>
-                                  </button>
+                   
                               </div>
                             </div>
                           

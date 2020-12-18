@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 
-import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -30,6 +30,9 @@ export class LoginComponent implements OnInit {
 
 
   guardar(forma:NgForm) {
+    
+   
+
     this.isLoadingResults = true;
     this.authService.login(forma.value)
       .subscribe(() => {

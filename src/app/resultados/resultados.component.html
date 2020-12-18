@@ -8,8 +8,8 @@
         </HEAD>
         <body>
 
-            <nav class="navbar">
-                <a class="navbar-brand" href="#">
+            <nav class="navbar" >
+                <a class="navbar-brand" href="/secure">
                   <img src="../../assets/img/logo.png" width="60" height="50" class="d-inline-block align-top" alt="">
 
                 </a>
@@ -25,64 +25,64 @@
 
 
                     <div class="container">
-                        <div class="row">
-                          <div class="col">
-                     <mat-card>INFO </mat-card>
-                          </div>
-                          <div class="col">
-                            <mat-card > 
-                        
-                            </mat-card>
+                      
+                      
+                           <div class="row">
+                                 <div class="col">
+                                     <mat-card>
 
-                          </div>
+                                   <img src="../../assets/img/1_logo_ubo.png" id="imageLogo">
+                
+                           
+                                     </mat-card>
+
+                                  </div>
+                                  <div class="col">
+
+                                    <mat-card >
+
+                                        <p> <strong>NOMBRE:</strong>  {{infopag.info.nombre}}</p>
+                                        <p><strong>APELLIDO:</strong> {{infopag.info.apellido}}</p>
+                                        <p><strong>CORREO:</strong> {{infopag.info.correo}}</p>
+                                        <p><strong>RUT:</strong> {{infopag.info.rut}}</p>
+
+                                    </mat-card>
+
+                                   </div>
                         </div>
                         <br>
                         <br>
-                        <div class="row">
-                          <div class="col">
-                            <mat-progress-spinner
-                            mode="determinate"
-                            color="primary"
-                            [value]="50">
-                        </mat-progress-spinner>
-                        <br>
-                        <h1 class="text-left">asdas</h1>
-                          </div>
-                          <div class="col">
-                            <mat-progress-spinner
-                            mode="determinate"
-                            color="accent"
-                            [value]="50">
-                        </mat-progress-spinner>
-                        <br>
-                        <h1 class="text-left">asdas</h1>
-                          </div>
-                          <div class="col">
-                            <mat-progress-spinner
-                            mode="determinate"
-                            color="warn"
-                            [value]="50">
-                        </mat-progress-spinner>
-                        <br>
-                        <h1 class="text-left">asdas</h1>
-                          </div>
+
+                       <div class="row">
+
+                            <div class="col" *ngFor="let item of resultados; index as i" >
+                           
+                              <app-mat-spinner-overlay [value]="item.porcentajeAsociado*100" ></app-mat-spinner-overlay>
+                              <br>
+                              <h1 class="text-left">{{item.areaPerteneciente.name}}  {{item.porcentajeAsociado*100}}% </h1>
+                              <h4 class="text-left">CARRERAS UBO</h4>
+                              <h5 class="text-left">{{item.areaPerteneciente.carrerasUbo}}</h5>
+                        
+                            </div>
+
                         </div>
-                      </div>
+                        <br>
+                        <br>
+
+       </div>
 
 
 
 
    
-  
-    
-               
+
 
                   
 
-                  <a href="#" class="btn btn-primary">EXPORTAR RESULTADOS A PDF</a>
+                  <a class="btn btn-primary" [href]="url" (click)="enviarPDF()" >EXPORTAR RESULTADOS A PDF</a>
                 </div>
                 <div class="card-footer text-muted">
-                  UNIVERSIDAD BERNARDO O'HIGGINS
+                  UNIVERSIDAD BERNARDO O'HIGGINS 
                 </div>
               </div>
 
