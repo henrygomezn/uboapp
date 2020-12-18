@@ -32,5 +32,30 @@ body{
 
 
 #btnRespuesta{
+background-color: #032355;
+color: white;
+border-radius: 1cm;
+padding: 2%;
 
 }
+
+
+#btnRespuesta:hover{
+  background-color: #47679b;
+
+  }
+
+
+#prueba1:hover{
+  -webkit-transform: rotateY(360deg);
+  -webkit-transform-style: preserve-3d;
+  transform: rotateY(360);
+  transform-style: preserve-3d;
+  transition: 1.5s;
+}
+
+#question{
+background-color: #032355;
+color: white;
+}
+

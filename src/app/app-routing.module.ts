@@ -9,7 +9,7 @@ import { ResultadosComponent } from './resultados/resultados.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: RegisterComponent },
   { path: 'secure',canActivate: [ AuthGuard ], component: SecureComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

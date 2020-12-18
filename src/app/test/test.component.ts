@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 import { Respuesta } from '../interfaces/respuesta';
 import { Pregunta } from '../interfaces/pregunta.interface';
 import Swal from 'sweetalert2';
-
+import { ResponseTest } from '../interfaces/responseTest.interface';
 
 @Component({
   selector: 'app-test',
@@ -32,9 +32,11 @@ export class TestComponent implements OnInit {
   preguntaSelect : string = "";
   isLoadingResults = false;
 
-  resultado: Array<Respuesta>;
+  public resultado: ResponseTest;
 
-  constructor(public infopag: PreguntaService, private router: Router, private respService: RespuestasService) {}
+  constructor(public infopag: PreguntaService, private router: Router, private respService: RespuestasService) {
+    localStorage.setItem('urlPDF', '0');
+  }
 
   ngOnInit(): void {}
 
@@ -86,7 +88,10 @@ export class TestComponent implements OnInit {
       title: 'Error',
       text: 'No has contestado todas las preguntas, vuelve a intentarlo'
 
-    })
+    }  );
+
+    console.log("uta");
+    
    }else{
    
     
@@ -94,14 +99,15 @@ export class TestComponent implements OnInit {
      this.isLoadingResults = true;
      this.respService.guardarRespuestas(this.respuestas).subscribe(
       data => {
-        this.resultado = [];
-        this.resultado.push(data);
-        console.log(data);
+       
+       console.log(data.linkPDF);  
+       localStorage.setItem('urlPDF', data.linkPDF);
+        this.resultado=data;
+       this.router.navigate(['/resultados']).then(_ => console.log('respuestas ingresadas!'));
       },
       err => {}
     );
       
-    
      
    }
 
