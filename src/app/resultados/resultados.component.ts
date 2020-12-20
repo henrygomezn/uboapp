@@ -6,7 +6,8 @@ import {
   QueryList,
   ViewChild,
   ViewChildren,
-  Input
+  Input,
+  OnDestroy
 } from '@angular/core';
 
 import { LastResultService } from '../last-result.service';
@@ -18,6 +19,7 @@ import { Porcentajes } from '../interfaces/porcentajes.interface';
 import {interval,timer} from 'rxjs';
 import Swal from 'sweetalert2';
 import { TestComponent } from '../test/test.component';
+import { TokenService } from '../token.service';
 
 
 @Component({
@@ -25,7 +27,7 @@ import { TestComponent } from '../test/test.component';
   templateUrl: './resultados.component.html',
   styleUrls: ['./resultados.component.css']
 })
-export class ResultadosComponent implements OnInit {
+export class ResultadosComponent implements OnInit, OnDestroy {
 
 
 
@@ -36,8 +38,8 @@ export class ResultadosComponent implements OnInit {
   por3:number=50;
   url:any;
 
-  constructor( public json: LastResultService,public infopag:UserService) {
-    this.json.getJson().subscribe((res: any) => {
+  constructor( public lastResultService: LastResultService,public infopag:UserService, private tokenService: TokenService) {
+    this.lastResultService.getJson().subscribe((res: any) => {
      // console.log(res);
       this.resultados=res;
     //  console.log(this.resultados);
@@ -48,6 +50,11 @@ export class ResultadosComponent implements OnInit {
   ngOnInit(): void {
 
    this.url=localStorage.getItem('urlPDF');
+  }
+
+  ngOnDestroy(): void {
+    console.log('Destroy');
+
   }
 
 

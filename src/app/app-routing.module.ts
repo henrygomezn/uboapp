@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
 import { AuthGuard } from './auth.guard';
 import { ResultadosComponent } from './resultados/resultados.component';
+import { MostrarPdfComponent } from './mostrarpdf/mostrar-pdf/mostrar-pdf.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'test', canActivate: [ AuthGuard ], component: TestComponent },
   { path: 'resultados' , canActivate: [ AuthGuard ], component: ResultadosComponent },
+  {
+    path: 'verPdf',
+    component: MostrarPdfComponent
+  },
   { path: '**', redirectTo: '' }
 ];
 

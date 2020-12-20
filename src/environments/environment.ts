@@ -6,7 +6,7 @@ export const environment = {
   production: false,
  OAUTH_CLIENT : 'android-client',
 OAUTH_SECRET : 'android_secret',
- API_URL : 'http://localhost:8080/',
+ API_URL : 'http://localhost:5000/',
   ACCESS_TOKEN : 'access_token',
  REFRESH_TOKEN : 'refresh_token'
 };

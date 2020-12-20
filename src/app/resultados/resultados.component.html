@@ -25,15 +25,15 @@
 
 
                     <div class="container">
-                      
-                      
+
+
                            <div class="row">
                                  <div class="col">
                                      <mat-card>
 
                                    <img src="../../assets/img/1_logo_ubo.png" id="imageLogo">
-                
-                           
+
+
                                      </mat-card>
 
                                   </div>
@@ -56,13 +56,13 @@
                        <div class="row">
 
                             <div class="col" *ngFor="let item of resultados; index as i" >
-                           
+
                               <app-mat-spinner-overlay [value]="item.porcentajeAsociado*100" ></app-mat-spinner-overlay>
                               <br>
-                              <h1 class="text-left">{{item.areaPerteneciente.name}}  {{item.porcentajeAsociado*100}}% </h1>
+                              <h1 class="text-left">{{item.areaPerteneciente.name}} {{item.porcentajeAsociado*100}}% </h1>
                               <h4 class="text-left">CARRERAS UBO</h4>
-                              <h5 class="text-left">{{item.areaPerteneciente.carrerasUbo}}</h5>
-                        
+                              <h5 class="text-left" *ngFor="let carrera of item.areaPerteneciente.carrerasUbo">{{carrera}}</h5>
+
                             </div>
 
                         </div>
@@ -74,24 +74,25 @@
 
 
 
-   
 
 
-                  
 
-                  <a class="btn btn-primary" [href]="url" (click)="enviarPDF()" >EXPORTAR RESULTADOS A PDF</a>
+
+
+                  <a class="btn btn-primary" routerLink="/verPdf" (click)="enviarPDF()" >VER EN PDF</a>
+
                 </div>
                 <div class="card-footer text-muted">
-                  UNIVERSIDAD BERNARDO O'HIGGINS 
+                  UNIVERSIDAD BERNARDO O'HIGGINS
                 </div>
               </div>
 
 
-           
-      
 
 
- 
+
+
+
 
 
 

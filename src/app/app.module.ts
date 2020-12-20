@@ -19,7 +19,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card'
 import { ResultadosComponent } from './resultados/resultados.component';
 import { MatSpinnerOverlayComponent } from './mat-spinner-overlay/mat-spinner-overlay.component';
-
+import { MostrarPdfComponent } from './mostrarpdf/mostrar-pdf/mostrar-pdf.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { MatSpinnerOverlayComponent } from './mat-spinner-overlay/mat-spinner-ov
     RegisterComponent,
     TestComponent,
     ResultadosComponent,
-    MatSpinnerOverlayComponent
+    MatSpinnerOverlayComponent,
+    MostrarPdfComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { MatSpinnerOverlayComponent } from './mat-spinner-overlay/mat-spinner-ov
     NoopAnimationsModule,
     MatRadioModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxExtendedPdfViewerModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

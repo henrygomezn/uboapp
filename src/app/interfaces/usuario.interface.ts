@@ -1,11 +1,11 @@
-import './sexo';
-import { Sexo } from '../interfaces/sexo.interface';
+import { Sexo } from'../interfaces/sexo.interface';
 export interface Usuario {
   id?: number;
   nombre: string;
   apellido: string;
   correo: string;
   contrasena?: string;
+  telefono: string;
   sexo?: Sexo;
 
   // UserDetails
