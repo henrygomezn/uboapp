@@ -4,32 +4,48 @@ import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import { TokenService } from '../token.service';
+import { CountryI, CityI } from '../models/model.interface';
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers:[DataService]
 })
 export class RegisterComponent implements OnInit {
-  nombre = '';
-  apellido = '';
-  correo = '';
-  contrasena = '';
-  rut = '';
-  sexo = '';
+
   isLoadingResults = false;
 
-  constructor(private authService: AuthService, private router: Router, private tokenService: TokenService) { }
+  
+  public selectedCountry: CountryI = {id:0, name: ''};
+  public countries: CountryI[];
+  public cities: CityI[];
+
+
+  constructor(private dataSvc: DataService,private authService: AuthService, private router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
     this.tokenService.removeToken();
+    this.countries = this.dataSvc.getCountries();
+   
   }
+
+
+  onSelect(id:number):void{
+  
+    this.cities = this.dataSvc.getCities().filter(item => item.countryId == id);
+
+  }
+
 
 
  guardar(forma:NgForm){
   this.isLoadingResults = true;
 
-// console.log(forma.value);
+ console.log(forma.value);
 
   this.authService.register(forma.value)
     .subscribe((res: any) => {

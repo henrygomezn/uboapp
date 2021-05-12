@@ -4,59 +4,39 @@ body {
     background-image: url(../../assets/img/fondoubo.png);
     background-position: center;
     background-size: cover;
-    height: 150vh;
-  }
-  #login .container #login-row #login-column #login-box {
-    margin-top: 130px;
-    max-width: 600px;
-    height: 600px;
-    border-radius: 5%;
-    background: linear-gradient(#d4d1d1,#797979)
-
-  }
-
-
-
-  .hola{
-
-	transform: scale(1);
-  			transition: .3s ease-in-out;
-
+    height: 100vh;
 }
 
-.hola:hover{
-    transform: scale(1.1);
-
-
-  }
-
-#cajita{
-
-
+.padre {
+    height: 50vh;
+    /*IMPORTANTE*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#logo{
-  padding-top: 3%;
-  padding-bottom: 5%;
-  padding-left: 40%;
+.hijo {
+    background: linear-gradient(#707070, #d3d3d3);
+    width: 40em;
+    margin-top: 50vh;
+    padding-top: 1cm;
+    border-radius: 15px;
+    text-align: center;
+    padding-bottom: 5vh
 }
 
-
-#caja:invalid:focus {
-  background-color: rgb(255, 170, 170);
-  border: 2px solid red;
+.form-group {
+    margin: 0px 0px 10px;
 }
 
-
-#prueba:hover{
-  -webkit-transform: rotateY(360deg);
-  -webkit-transform-style: preserve-3d;
-  transform: rotateY(360);
-  transform-style: preserve-3d;
-  transition: 1.5s;
+#prueba {
+    margin-bottom: 1cm;
 }
 
-.btn:hover{
-  background-color: #032355;
+#prueba:hover {
+    -webkit-transform: rotateY(360deg);
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(360);
+    transform-style: preserve-3d;
+    transition: 1.5s;
 }
-

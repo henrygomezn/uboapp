@@ -7,6 +7,7 @@ export interface Usuario {
   contrasena?: string;
   telefono: string;
   sexo?: Sexo;
+  preferenciaCarrera: string;
 
   // UserDetails
   authorities?: string[];

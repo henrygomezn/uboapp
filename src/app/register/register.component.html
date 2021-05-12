@@ -1,155 +1,138 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <body>
-    <div id="login">
-        <h3 class="text-center text-white pt-5"> </h3>
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12 hola">
+    <div id="caja">
 
 
-                    <div id="cajita">
-
-                      <div class="row" id="logo">
-                        <img src="../../assets/img/logo.png" id="prueba" >
-                     </div>
-                        <form autocomplete="off" (ngSubmit)="guardar(forma)" #forma="ngForm">
-
-                            <div>
-
-                              <div class="form-group row">
-                                <label class="col-2 col-form-label"></label>
-                                <div class="col-8">
-
-                                  <input class="form-control"
-                                         type="text"
-                                         name="nombre"
-                                         ngModel
-                                         placeholder="Nombre"
-                                         required>
-                                </div>
-                              </div>
-
-                              <div class="form-group row">
-                                <label class="col-2 col-form-label"></label>
-                                <div class="col-8">
-
-                                  <input class="form-control"
-                                         type="text"
-                                         placeholder="Apellidos"
-                                         name="apellido"
-                                         ngModel
-                                         required>
-                                </div>
-                              </div>
-
-                              <div class="form-group row">
-                                <label class="col-2 col-form-label"></label>
-                                <div class="col-8">
-
-                                  <input class="form-control"
-                                         type="email"
-                                         placeholder="Correo electronico"
-                                         name="correo"
-                                         ngModel
-                                         required>
-
-                                </div>
-                              </div>
+        <div class="padre">
 
 
-                              <div class="form-group row">
-                                <label class="col-2 col-form-label"></label>
-                                <div class="col-8">
+            <div class="hijo">
 
-                                  <input class="form-control"
-                                         type="text"
-                                         placeholder="Confirmar Correo"
-                                         name="contrasena"
-                                         ngModel
-                                         required>
-                                </div>
-                              </div>
+                <img src="../../assets/img/logo.png" id="prueba">
+                <form autocomplete="off" (ngSubmit)="guardar(forma)" #forma="ngForm">
 
+                    <div>
 
-                              <div class="form-group row">
-                                <label class="col-2 col-form-label"></label>
-                                <div class="col-8">
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label"></label>
+                            <div class="col-8">
 
-                                  <input class="form-control"
-                                         type="text"
-                                         placeholder="Telefono"
-                                         name="telefono"
-                                         ngModel
-                                         required>
-                                </div>
-                              </div>
-
-
-
-                              <div class="form-group row">
-                                <label class="col-2 col-form-label"></label>
-                                <div class="col-8">
-
-                                  <input class="form-control"
-                                         type="text"
-                                         placeholder="RUT (1111111-1)"
-                                         name="rut"
-                                         id="caja"
-                                         minlength="9"
-                                         maxlength="10"
-                                         ngModel
-                                         required>
-                                </div>
-                              </div>
-
-
-                              <div class="form-group row">
-                                <label class="col-2 col-form-label"></label>
-                                <div class="col-8">
-
-                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo" ngModel value="0">
-                                    <label class="form-check-label" for="inlineRadio1">Masculino</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo" ngModel value="1">
-                                    <label class="form-check-label" for="inlineRadio2">Femenino</label>
-                                  </div>
-
-                                </div>
-                              </div>
-
+                                <input class="form-control" type="text" name="nombre" ngModel placeholder="Nombre" required>
                             </div>
-
-
-
-
-
-                            <div class="form-group row">
-                              <label class="col-2 col-form-label">&nbsp;</label>
-                              <div class="input-group col-md-8">
-                                <button type="submit" class="btn btn-outline-dark btn-block">
-                                  Enviar
-                                </button>
-
-                              </div>
-                            </div>
-
-                          </form>
-
-
-
                         </div>
 
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label"></label>
+                            <div class="col-8">
+
+                                <input class="form-control" type="text" placeholder="Apellidos" name="apellido" ngModel required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label"></label>
+                            <div class="col-8">
+
+                                <input class="form-control" type="email" placeholder="Correo electronico" name="correo" ngModel required>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label"></label>
+                            <div class="col-8">
+
+                                <input class="form-control" type="text" placeholder="Confirmar Correo" name="contrasena" ngModel required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label"></label>
+                            <div class="col-8">
+
+                                <input class="form-control" type="text" placeholder="Telefono" name="telefono" ngModel required>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label"></label>
+                            <div class="col-8">
+
+                                <input class="form-control" type="text" placeholder="RUT (1111111-1)" name="rut" id="caja" minlength="9" maxlength="10" ngModel required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label"></label>
+                            <div class="col-8">
+
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" ngModel value="0">
+                                    <label class="form-check-label" for="inlineRadio1">Masculino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" ngModel value="1">
+                                    <label class="form-check-label" for="inlineRadio2">Femenino</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label"></label>
+                            <div class="col-8">
+
+                                <select class="form-control" id="exampleFormControlSelect1" (change)="onSelect($event.target.value)">
+                              <option *ngFor="let country of countries" value="{{country.id}}">
+                                  {{country.name}}
+                              </option>
+                        </select>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row" *ngIf="cities?.length > 0">
+                            <label class="col-2 col-form-label"></label>
+                            <div class="col-8">
+                                <label for="exampleFormControlSelect2">Escoge Carrera de interés</label>
+                                <select class="form-control" id="exampleFormControlSelect2" ngModel name="preferenciaCarrera">
+                              <option *ngFor="let city of cities" value="{{city.name}}" ngDefaultControl >
+                                 {{city.name}}
+                              </option>
+                            </select>
+
+                            </div>
+                        </div>
+
+
                     </div>
-                </div>
+
+
+
+
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">&nbsp;</label>
+                        <div class="input-group col-md-8">
+                            <button type="submit" class="btn btn-outline-dark btn-block">
+                      Enviar
+                    </button>
+
+                        </div>
+                    </div>
+
+                </form>
+
             </div>
         </div>
+
     </div>
 </body>
