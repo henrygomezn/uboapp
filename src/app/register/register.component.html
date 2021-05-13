@@ -104,7 +104,7 @@
                             <label class="col-2 col-form-label"></label>
                             <div class="col-8">
                                 <label for="exampleFormControlSelect2">Escoge Carrera de interés</label>
-                                <select class="form-control" id="exampleFormControlSelect2" ngModel name="preferenciaCarrera">
+                                <select class="form-control" id="exampleFormControlSelect2" ngModel name="preferenciaCarrera" required>
                               <option *ngFor="let city of cities" value="{{city.name}}" ngDefaultControl >
                                  {{city.name}}
                               </option>
