@@ -7,11 +7,6 @@ export class DataService {
 
   private countries : CountryI[] = [
     {
-      id: 0,
-      name: 'Escoge Facultad de interés'
-    }
-    ,
-    {
       id: 1,
       name: 'FACULTAD DE CIENCIAS SOCIALES'
     },
