@@ -10,7 +10,7 @@
             <div class="hijo">
 
                 <img src="../../assets/img/logo.png" id="prueba">
-                <form autocomplete="off" (ngSubmit)="guardar(forma)" #forma="ngForm">
+                <form novalidate autocomplete="off" (ngSubmit)="guardar(forma)" #forma="ngForm">
 
                     <div>
 
@@ -53,7 +53,7 @@
                             <label class="col-2 col-form-label"></label>
                             <div class="col-8">
 
-                                <input class="form-control" type="text" placeholder="Telefono" name="telefono" ngModel required>
+                                <input class="form-control" type="tel" placeholder="Telefono" name="telefono" id="caja" ngModel required>
                             </div>
                         </div>
 
@@ -72,13 +72,30 @@
                             <label class="col-2 col-form-label"></label>
                             <div class="col-8">
 
+                                <select name="gradoCursado" class="form-control" ngModel required>
+                                    <option value="">Selecciona nivel que cursas</option>
+                                    <option value="1° Medio">1° Medio</option>
+                                    <option value="2° Medio">2° Medio</option>
+                                    <option value="3° Medio">3° Medio</option>
+                                    <option value="4° Medio">4° Medio</option>
+                                    <option value="Egresado">Egresado</option>
+                                  </select>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label"></label>
+                            <div class="col-8">
+
 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo" ngModel value="0">
+                                    <input class="form-check-input" type="radio" name="sexo" ngModel value="0" required>
                                     <label class="form-check-label" for="inlineRadio1">Masculino</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo" ngModel value="1">
+                                    <input class="form-check-input" type="radio" name="sexo" ngModel value="1" required>
                                     <label class="form-check-label" for="inlineRadio2">Femenino</label>
                                 </div>
 
@@ -90,8 +107,9 @@
                             <label class="col-2 col-form-label"></label>
                             <div class="col-8">
 
-                                <select class="form-control" id="exampleFormControlSelect1" (change)="onSelect($event.target.value)">
-                              <option *ngFor="let country of countries" value="{{country.id}}">
+                                <select class="form-control" id="exampleFormControlSelect1" (change)="onSelect($event.target.value)" name="facultad" ngModel required>
+                                  <option value="">Facultad de interes</option>
+                                    <option *ngFor="let country of countries" value="{{country.id}}">
                                   {{country.name}}
                               </option>
                         </select>
@@ -105,7 +123,8 @@
                             <div class="col-8">
                                 <label for="exampleFormControlSelect2">Escoge Carrera de interés</label>
                                 <select class="form-control" id="exampleFormControlSelect2" ngModel name="preferenciaCarrera" required>
-                              <option *ngFor="let city of cities" value="{{city.name}}" ngDefaultControl >
+                                    <option value="">Carrera</option>
+                                    <option *ngFor="let city of cities" value="{{city.name}}" ngDefaultControl >
                                  {{city.name}}
                               </option>
                             </select>
@@ -122,7 +141,7 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">&nbsp;</label>
                         <div class="input-group col-md-8">
-                            <button type="submit" class="btn btn-outline-dark btn-block">
+                            <button type="submit" [disabled]="forma.invalid" class="btn btn-outline-dark btn-block">
                       Enviar
                     </button>
 

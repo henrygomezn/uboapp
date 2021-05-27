@@ -40,3 +40,8 @@ body {
     transform-style: preserve-3d;
     transition: 1.5s;
 }
+
+#caja:invalid:focus {
+    background-color: rgb(255, 170, 170);
+    border: 2px solid red;
+}
